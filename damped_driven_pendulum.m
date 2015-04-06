@@ -7,7 +7,7 @@ close all
 
 %g = 0;q = 2;omega_d = 0.6667;
 % transient, then periodic
-%g = 1.35; q=2; omega_d = 0.6667;
+%g = 1.35; q=2; omega_d = 0.6667; % use [2 0, 0] init cond
 % chaotic
 g = 1.15; q=4; omega_d = 0.6667;
 
