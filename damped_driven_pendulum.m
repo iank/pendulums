@@ -16,7 +16,7 @@ param = [q, g, omega_d];
 [t, X] = ode45(@damped_driven_ode, [0, 1000], [0, -2*pi/3, 0], [], param);
 
 % Wrap theta between -pi, pi
-X(:,2) = wrapToPi(X(:,2));
+%X(:,2) = wrapToPi(X(:,2));
 
 figure
 plot(X(:,2), X(:,1))
@@ -38,18 +38,18 @@ title('Poincare section in phase with driving force');
 omega = 0;
 theta = -2*pi/3;
 phi = 0;
-for i=1:100
+for i=1:10000
     g = 1.15; q=4; omega_d = 0.6667;
 
     param = [q, g, omega_d];
     
-    [t, X] = ode45(@damped_driven_ode, [0, 10000*(1/omega_d)], [omega, theta, phi], [], param);
+    [t, X] = ode45(@damped_driven_ode, [0, 200*(1/omega_d)], [omega, theta, phi], [], param);
 
     % Wrap theta between -pi, pi
-    X(:,2) = wrapToPi(X(:,2));
+    X(:,2) = wrapTo2Pi(X(:,2));
     
     % plot in-phase points
-    poincare = find(sin(X(:,3)) > 0.99999)
+    poincare = find(sin(X(:,3)) > 0.99995);
 
     plot([X(poincare,2)], [X(poincare,1)], '.')
     omega = X(end, 1);
