@@ -32,7 +32,7 @@ phi = X(end, 3);
 
 %% Estimate LCE
 Tau = 100; % Renormalization step
-k = 100; % number of renormalizations
+k = 1000; % number of renormalizations
 d0 = 10^-7;
 dist = zeros(k, 1);  % gamma (=apx=) lim Chi[k] as k->inf, d0->0
 
